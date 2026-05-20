@@ -9,34 +9,34 @@ const quickLinks = [
 ];
 
 const services = [
-  "Next.js Development",
-  "Web Design",
+  "Web Development",
   "WordPress Development",
-  "Responsive UI",
+  "Web Design",
+  "SEO Optimization",
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/10">
       <div className="page-shell py-12">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-[#202020] p-8 sm:p-10 lg:grid-cols-[1.15fr_0.8fr_0.9fr]">
+        <div className="dark-card purple-glow grid gap-8 rounded-[2rem] p-8 sm:p-10 lg:grid-cols-[1.15fr_0.8fr_0.85fr_0.95fr]">
           <div>
             <p className="text-2xl font-black tracking-tight text-white">
-              Akm Humayoun Alom
+              AKM HUMAYOUN
             </p>
-            <p className="mt-4 max-w-md text-base leading-7 text-white/65">
-              Expert Next.js Developer, Web Designer, and WordPress Developer
-              creating modern websites and digital experiences for growing
-              brands.
+            <p className="mt-4 max-w-md text-base leading-7 text-white/68">
+              Full Stack Developer, Expert Next.js Developer, Web Designer, and
+              WordPress Developer creating modern websites for growing brands.
             </p>
-            <div className="mt-6 space-y-2 text-sm text-white/65">
+            <div className="mt-6 space-y-2 text-sm text-white/62">
               <p>Email: akmhumayounalom@gmail.com</p>
               <p>Phone: 01748303987</p>
+              <p>Location: Bangladesh</p>
             </div>
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-white/55">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#c9a8ff]">
               Quick Links
             </p>
             <div className="mt-5 flex flex-col gap-3">
@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-white/55">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#c9a8ff]">
               Services
             </p>
             <div className="mt-5 flex flex-col gap-3">
@@ -64,9 +64,20 @@ export default function Footer() {
               ))}
             </div>
           </div>
+
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#c9a8ff]">
+              Contact
+            </p>
+            <div className="mt-5 space-y-3 text-sm font-semibold text-white/68">
+              <p>Facebook: Akm tahmidul Alom Tahmid</p>
+              <p>LinkedIn: Not added yet</p>
+              <p>GitHub: Not added yet</p>
+            </div>
+          </div>
         </div>
 
-        <p className="mt-6 text-sm text-white/45">
+        <p className="mt-6 text-sm text-white/42">
           Copyright 2026 Akm Humayoun Alom. All Rights Reserved.
         </p>
       </div>

@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Akm Humayoun Alom | HumayounFix",
+  title: "Akm Humayoun Alom | AKM HUMAYOUN",
   description:
-    "Dark personal portfolio for Akm Humayoun Alom, Expert Next.js Developer, Web Designer, and WordPress Developer.",
+    "Premium dark developer portfolio for Akm Humayoun Alom, Full Stack Developer, Expert Next.js Developer, Web Designer, and WordPress Developer.",
 };
 
 export default function RootLayout({
@@ -26,11 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-[#1b1b1b] text-white">
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full bg-[#09090f] text-white">
         <div className="relative flex min-h-full flex-col">
           <Navbar />
           <div className="flex-1">{children}</div>

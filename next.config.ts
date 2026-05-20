@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const createNextConfig = (phase: string): NextConfig => ({
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next/dev" : ".next-release",
+  turbopack: {
+    root: process.cwd(),
+  },
+});
 
-export default nextConfig;
+export default createNextConfig;
