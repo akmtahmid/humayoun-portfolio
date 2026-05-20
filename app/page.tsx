@@ -1,433 +1,412 @@
 import Link from "next/link";
+import BentoCard from "@/components/BentoCard";
+import CopyEmailButton from "@/components/CopyEmailButton";
+import ExperienceCard from "@/components/ExperienceCard";
 import ProfileImage from "@/components/ProfileImage";
 import ProjectCard from "@/components/ProjectCard";
-import SectionTitle from "@/components/SectionTitle";
-import ServiceCard from "@/components/ServiceCard";
-import StatCard from "@/components/StatCard";
+import TestimonialCard from "@/components/TestimonialCard";
 
-const services = [
+const bentoCards = [
   {
-    icon: "WD",
-    title: "Web Development",
+    title: "I prioritize client collaboration, fostering open communication",
     description:
-      "Custom modern websites built with strong structure, polished interactions, and production-ready performance.",
+      "Clear communication helps every project move faster, stay aligned, and launch with confidence.",
+    className: "md:col-span-2 lg:col-span-2 lg:row-span-2",
+    accent: "bg-violet-500/18",
+    content: (
+      <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-[1.2rem] border border-white/10 bg-black/20 p-4">
+            <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+              Response Flow
+            </p>
+            <p className="mt-3 text-sm text-white/75">Fast updates, shared goals, clear direction.</p>
+          </div>
+          <div className="rounded-[1.2rem] border border-white/10 bg-black/20 p-4">
+            <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+              Outcome
+            </p>
+            <p className="mt-3 text-sm text-white/75">Stronger trust and smoother delivery.</p>
+          </div>
+        </div>
+      </div>
+    ),
   },
   {
-    icon: "WP",
-    title: "WordPress Development",
-    description:
-      "Professional WordPress and Elementor builds that are manageable, responsive, and ready for business growth.",
+    title: "I’m very flexible with time zone communications",
+    className: "lg:col-span-1",
+    accent: "bg-sky-500/18",
+    content: (
+      <div className="flex items-center gap-3 text-sm text-white/70">
+        <span className="rounded-full border border-white/10 px-4 py-2">Bangladesh</span>
+        <span className="rounded-full border border-white/10 px-4 py-2">Remote Friendly</span>
+      </div>
+    ),
   },
   {
-    icon: "UI",
-    title: "Web Design",
-    description:
-      "Elegant layout systems with clear hierarchy, premium spacing, and modern visual presentation.",
+    title: "Continuously Enhancing My tech stack",
+    className: "lg:col-span-1",
+    accent: "bg-fuchsia-500/18",
+    content: (
+      <div className="grid grid-cols-2 gap-3 text-sm text-white/75">
+        {["Next.js", "React", "TypeScript", "MongoDB"].map((item) => (
+          <span
+            key={item}
+            className="rounded-[1rem] border border-white/10 bg-black/20 px-4 py-3 text-center"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    ),
   },
   {
-    icon: "SEO",
-    title: "SEO Optimization",
+    title: "Tech enthusiast with a passion for development.",
     description:
-      "SEO-aware structure, speed improvements, and content-ready layouts that strengthen discoverability.",
+      "I enjoy building polished interfaces and scalable structures that feel modern from the first impression.",
+    className: "md:col-span-2 lg:col-span-1",
+    accent: "bg-violet-400/14",
   },
   {
-    icon: "EC",
-    title: "E-commerce Solutions",
-    description:
-      "Storefront and product experiences tailored for businesses that want clean interfaces and trust-building flow.",
+    title: "Specializing in modern business websites and SEO-friendly design",
+    className: "md:col-span-2 lg:col-span-2",
+    accent: "bg-sky-400/12",
+    content: (
+      <div className="grid gap-3 sm:grid-cols-3">
+        {["Landing Pages", "WordPress Sites", "Next.js Builds"].map((item) => (
+          <div
+            key={item}
+            className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-5 text-center text-sm text-white/72"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    ),
   },
   {
-    icon: "SS",
-    title: "Speed & Security",
-    description:
-      "Performance optimization and dependable implementation that help websites feel fast, stable, and secure.",
+    title: "Currently building advanced Next.js and WordPress solutions",
+    className: "lg:col-span-1",
+    accent: "bg-indigo-500/16",
+    content: (
+      <div className="space-y-3">
+        <div className="h-3 rounded-full bg-white/10">
+          <div className="h-3 w-3/4 rounded-full bg-violet-500/70" />
+        </div>
+        <div className="h-3 rounded-full bg-white/10">
+          <div className="h-3 w-2/3 rounded-full bg-sky-500/60" />
+        </div>
+      </div>
+    ),
   },
 ];
 
-const featuredProjects = [
+const projects = [
   {
     title: "Digital Agency Website",
     description:
-      "A premium dark agency presentation with upscale section composition, strong hierarchy, and service-first storytelling.",
-    techStack: ["Next.js", "Tailwind CSS", "UI Design"],
-    featured: true,
-  },
-  {
-    title: "Business Landing Page",
-    description:
-      "A responsive landing page built for clearer offers, cleaner messaging, and higher trust on first impression.",
-    techStack: ["React.js", "Responsive", "SEO"],
+      "Modern agency website built with Next.js and Tailwind CSS for business growth and lead generation.",
+    techStack: ["Next.js", "Tailwind CSS", "Lead Gen"],
   },
   {
     title: "WordPress Service Website",
     description:
-      "A professional service website designed for businesses that need flexibility, modern visuals, and easy updates.",
-    techStack: ["WordPress", "Elementor", "Brand UI"],
+      "Responsive WordPress website using Elementor, custom sections, and SEO-friendly structure.",
+    techStack: ["WordPress", "Elementor", "SEO"],
+  },
+  {
+    title: "Business Landing Page",
+    description:
+      "High converting landing page for online services, portfolio, and business promotion.",
+    techStack: ["Landing Page", "Responsive", "UI Design"],
   },
   {
     title: "Full Stack Dashboard",
     description:
-      "A data-driven interface with dashboard structure, backend-ready thinking, and a clean product design language.",
-    techStack: ["Node.js", "MongoDB", "REST API"],
+      "Dashboard concept using Next.js, Node.js, MongoDB, and REST API.",
+    techStack: ["Next.js", "MongoDB", "REST API"],
   },
-];
-
-const skills = [
-  "Next.js",
-  "React.js",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "TypeScript",
-  "JavaScript",
-  "Tailwind CSS",
-  "WordPress",
-  "Elementor",
-  "SEO Optimization",
-  "REST API",
-  "Git/GitHub",
 ];
 
 const testimonials = [
   {
-    name: "Startup Founder",
-    role: "Agency Client",
+    title: "Business Owner",
     quote:
-      "The final website looked premium, loaded fast, and made our business feel much more established online.",
+      "The website felt professional, loaded quickly, and made it easier for customers to trust our business online.",
+    person: "Rahim Hasan",
+    role: "Local Business",
   },
   {
-    name: "Business Owner",
-    role: "Service Brand",
+    title: "Entrepreneur",
     quote:
-      "Excellent communication, modern design choices, and a final result that felt custom instead of template-based.",
+      "Communication was smooth, revisions were handled quickly, and the final design matched exactly what I needed.",
+    person: "Nusrat Jahan",
+    role: "Independent Founder",
   },
   {
-    name: "Creative Client",
-    role: "Portfolio Project",
+    title: "Digital Marketer",
     quote:
-      "The balance between design and development was exactly what I needed. Everything felt clean and professional.",
+      "The structure was clean, conversion focused, and noticeably better for campaign traffic and SEO clarity.",
+    person: "Mahi Uddin",
+    role: "Marketing Consultant",
+  },
+  {
+    title: "Startup Founder",
+    quote:
+      "From layout to responsiveness, the project felt polished and reliable, with thoughtful updates throughout the process.",
+    person: "Sabbir Alam",
+    role: "Startup Team",
   },
 ];
 
-const infoCards = [
-  ["Name", "Akm Humayoun Alom"],
-  [
-    "Profession",
-    "Full Stack Developer, Expert Next.js Developer, Web Designer, WordPress Developer",
-  ],
-  ["Email", "akmhumayounalom@gmail.com"],
-  ["Phone", "01748303987"],
-  ["Facebook", "Akm tahmidul Alom Tahmid"],
-  ["LinkedIn", "Not added yet"],
-  ["GitHub", "Not added yet"],
+const tools = [
+  "Cloudinary",
+  "Hostinger",
+  "Docker",
+  "Discord",
+  "GCP",
+  "Azure",
+  "CPanel",
+  "Next.js",
+  "React",
+  "MongoDB",
+  "WordPress",
+  "Elementor",
+  "Tailwind CSS",
 ];
 
-const stats = [
-  ["26+", "Projects Completed", "PC"],
-  ["26+", "Happy Clients", "HC"],
-  ["3+", "Years Experience", "YE"],
-  ["100%", "Responsive Design", "RD"],
-] as const;
+const experiences = [
+  {
+    title: "Next.js Developer",
+    description:
+      "Building fast, scalable, and SEO-friendly web apps with clean UI systems, reusable components, and production-ready structure.",
+  },
+  {
+    title: "WordPress Developer",
+    description:
+      "Creating flexible service websites with Elementor, custom sections, and a setup that is easy for clients to maintain.",
+  },
+  {
+    title: "Freelance Web Designer",
+    description:
+      "Designing business-focused websites with clear hierarchy, stronger credibility, and layouts that feel modern across devices.",
+  },
+  {
+    title: "SEO & Website Optimization Specialist",
+    description:
+      "Improving website speed, structure, and content presentation so projects are easier to find and more effective to use.",
+  },
+];
 
-const socialButtons = [
-  { href: "/contact", label: "WA" },
-  { href: "/contact", label: "GH" },
-  { href: "/contact", label: "LI" },
-  { href: "/contact", label: "FB" },
+const approaches = [
+  {
+    phase: "Phase 1",
+    title: "Planning & Strategy",
+    description:
+      "We start by understanding your goals, users, content, and functionality so the website has a strong structure before design and development begin.",
+  },
+  {
+    phase: "Phase 2",
+    title: "Development & Progress Update",
+    description:
+      "After the direction is approved, I move into design and development while sharing progress updates so you always know how the project is evolving.",
+  },
+  {
+    phase: "Phase 3",
+    title: "Development & Launch",
+    description:
+      "Once everything is refined and approved, I prepare the final build, optimize the experience, and help launch the website smoothly.",
+  },
 ];
 
 export default function HomePage() {
   return (
-    <main className="hero-glow">
-      <section className="page-shell relative min-h-[calc(100vh-5.5rem)] overflow-hidden py-10 sm:py-14 lg:flex lg:items-center lg:py-20">
-        <div className="absolute left-[-5rem] top-20 h-72 w-72 rounded-full bg-[#7c3aed]/22 blur-3xl" />
-        <div className="absolute right-[-4rem] top-24 h-72 w-72 rounded-full bg-[#4f9cff]/14 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 h-56 w-56 rounded-full bg-[#a855f7]/12 blur-3xl" />
-        <div className="dot-grid absolute right-0 top-24 hidden h-56 w-40 opacity-60 lg:block" />
-        <div className="dot-grid absolute bottom-24 left-1/2 hidden h-28 w-28 opacity-50 xl:block" />
-
-        <div className="relative grid w-full gap-14 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
-          <div className="order-1">
-            <div className="relative mx-auto max-w-[34rem] lg:mx-0">
-              <div className="absolute -left-6 top-10 hidden h-32 w-32 rounded-full bg-[#a855f7]/20 blur-3xl sm:block" />
-              <div className="absolute -right-10 bottom-12 hidden h-36 w-36 rounded-full bg-[#4f9cff]/14 blur-3xl sm:block" />
-
-              <div className="rotate-[-5deg] rounded-[2rem] border border-[#9f67ff]/22 bg-[linear-gradient(135deg,rgba(168,85,247,0.12),rgba(79,156,255,0.06),rgba(255,255,255,0.03))] p-3 shadow-[0_30px_90px_-45px_rgba(124,58,237,0.95)]">
-                <div className="dark-card overflow-hidden rounded-[1.8rem] p-3">
-                  <ProfileImage
-                    src="/profile.jpg"
-                    alt="Akm Humayoun Alom profile photo"
-                    priority
-                    label="AKM HUMAYOUN"
-                    className="min-h-[420px] sm:min-h-[560px] lg:min-h-[650px]"
-                    fallbackTitle="Developer Portrait"
-                    fallbackDescription="A premium purple gradient placeholder appears automatically if profile.jpg is unavailable."
-                  />
-                </div>
-              </div>
-
-              <div className="absolute -left-3 top-8 rounded-[1.35rem] border border-white/10 bg-[#100d19]/78 px-5 py-4 shadow-[0_22px_55px_-32px_rgba(124,58,237,0.96)] backdrop-blur sm:-left-10">
-                <p className="text-sm font-semibold text-white">3+ Years Experience</p>
-              </div>
-              <div className="absolute bottom-24 -right-2 rounded-[1.35rem] border border-white/10 bg-[#100d19]/78 px-5 py-4 shadow-[0_22px_55px_-32px_rgba(124,58,237,0.96)] backdrop-blur sm:-right-8">
-                <p className="text-sm font-semibold text-white">
-                  100% Client Satisfaction
-                </p>
-              </div>
-              <div className="absolute -bottom-6 left-6 flex h-28 w-28 items-center justify-center rounded-full border border-[#9f67ff]/28 bg-[#120f1d]/88 text-center text-xs font-black uppercase tracking-[0.22em] text-white shadow-[0_22px_60px_-25px_rgba(124,58,237,0.98)] backdrop-blur sm:left-10">
-                Available
-                <br />
-                For Work
-              </div>
-
-              <div className="absolute bottom-5 left-5 flex gap-3 sm:bottom-7 sm:left-7">
-                {socialButtons.map((button) => (
-                  <Link
-                    key={button.label}
-                    href={button.href}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#0f0c18]/78 text-xs font-black text-white/78 backdrop-blur hover:border-[#9f67ff]/36 hover:text-white"
-                  >
-                    {button.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+    <main>
+      <section className="hero-grid">
+        <div className="page-shell flex min-h-[calc(100vh-5.5rem)] flex-col items-center justify-center py-24 text-center">
+          <p className="eyebrow">Dynamic Web Magic With MERN Stack (Next.js)</p>
+          <h1 className="hero-heading mt-6 max-w-5xl text-white">
+            Transforming Concepts into Seamless{" "}
+            <span className="text-gradient">User Experience</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/65 sm:text-lg">
+            Hi, I&apos;m Akm Humayoun Alom, a Full Stack Web App Developer based
+            in Bangladesh.
+          </p>
+          <div className="mt-10">
+            <a
+              href="mailto:akmhumayounalom@gmail.com?subject=Resume%20Request"
+              className="purple-button inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-sm font-medium text-white"
+            >
+              <span>Get Resume</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
-
-          <div className="order-2">
-            <div className="max-w-4xl">
-              <p className="eyebrow">Full Stack Developer</p>
-              <h1 className="section-title mt-5 max-w-5xl text-white">
-                Building Modern{" "}
-                <span className="bg-[linear-gradient(135deg,#c084fc,#8b5cf6,#60a5fa)] bg-clip-text text-transparent">
-                  Websites
-                </span>{" "}
-                That Grow Your{" "}
-                <span className="relative inline-block bg-[linear-gradient(135deg,#d8b4fe,#a855f7,#4f9cff)] bg-clip-text text-transparent">
-                  Business
-                  <span className="absolute left-0 right-0 top-[102%] h-2 rounded-full bg-[linear-gradient(90deg,rgba(168,85,247,0.6),rgba(79,156,255,0.25),transparent)]" />
-                </span>
-              </h1>
-              <p className="mt-8 max-w-3xl text-lg leading-8 text-white/70 sm:text-xl">
-                I design and develop fast, responsive, SEO-friendly websites
-                using Next.js, React, WordPress, Elementor, and modern web
-                technologies.
-              </p>
-
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <Link
-                  href="/contact"
-                  className="purple-button inline-flex items-center justify-center rounded-full px-7 py-4 text-sm font-semibold text-white"
-                >
-                  Hire Me
-                </Link>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center rounded-full border border-[#9f67ff]/34 bg-[#9f67ff]/10 px-7 py-4 text-sm font-semibold text-white hover:bg-[#9f67ff]/16"
-                >
-                  View Projects
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.03] px-7 py-4 text-sm font-semibold text-white hover:border-[#9f67ff]/28 hover:bg-[#9f67ff]/10"
-                >
-                  Contact Me
-                </Link>
-              </div>
-
-              <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {stats.map(([value, label, icon]) => (
-                  <StatCard key={label} value={value} label={label} icon={icon} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/55 lg:flex">
-          <div className="flex h-11 w-7 items-start justify-center rounded-full border border-white/12 p-1">
-            <span className="h-2.5 w-1.5 rounded-full bg-[#c084fc]" />
-          </div>
-          <span className="text-sm">v</span>
         </div>
       </section>
 
-      <section className="page-shell pb-8">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {stats.map(([value, label, icon]) => (
-            <StatCard
-              key={`${label}-center`}
-              value={value}
-              label={label}
-              icon={icon}
-              centered
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="page-shell section-space">
-        <SectionTitle
-          eyebrow="About Preview"
-          title="A premium developer portfolio built around modern design, clarity, and growth-focused execution."
-          description="I help brands and professionals turn ideas into polished websites that feel credible, fast, and ready for serious use."
-        />
-
-        <div className="mt-12 grid gap-6 xl:grid-cols-[0.86fr_0.62fr_1fr]">
-          <article className="dark-card rounded-[2rem] p-8 sm:p-10">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#c9a8ff]">
-              About Me
-            </p>
-            <h3 className="mt-4 text-3xl font-black tracking-tight text-white">
-              Akm Humayoun Alom
-            </h3>
-            <p className="mt-6 text-base leading-8 text-white/70 sm:text-lg">
-              Hi, I&apos;m Humayoun Alom - a passionate Web Designer and
-              WordPress Developer. I create modern, responsive, and user-friendly
-              websites using WordPress, Elementor, HTML, CSS, and JavaScript. I
-              love building clean and professional websites that help businesses
-              grow online.
-            </p>
-            <p className="mt-6 text-base leading-8 text-white/62 sm:text-lg">
-              Alongside design, I work deeply with Next.js, React, Node.js, and
-              modern frontend systems to deliver full-stack experiences with a
-              premium and technical edge.
-            </p>
-          </article>
-
-          <div className="dark-card purple-frame rounded-[2rem] p-4 sm:p-5">
+      <section id="about" className="page-shell -mt-12 pb-8">
+        <div className="grid gap-5 lg:grid-cols-[1.35fr_0.95fr]">
+          <div className="panel-strong rounded-[2rem] p-4 sm:p-5">
             <ProfileImage
               src="/profile.jpg"
-              alt="Akm Humayoun Alom portrait"
-              label="Bangladesh"
-              className="min-h-[380px] sm:min-h-[480px]"
-              fallbackTitle="Profile Card"
-              fallbackDescription="The same safe image component protects the layout anywhere the profile photo is used."
+              alt="Akm Humayoun Alom profile image"
+              priority
+              className="min-h-[26rem] sm:min-h-[32rem]"
             />
           </div>
 
-          <article className="dark-card rounded-[2rem] p-7 sm:p-8">
-            <div className="grid gap-4">
-              {infoCards.map(([label, value]) => (
-                <div
-                  key={label}
-                  className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4"
-                >
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#c9a8ff]">
-                    {label}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-white/74">{value}</p>
-                </div>
-              ))}
+          <div className="panel rounded-[2rem] p-8 text-left sm:p-10">
+            <p className="eyebrow">AKM HUMAYOUN</p>
+            <h2 className="mt-5 text-3xl font-semibold leading-tight text-white sm:text-4xl">
+              Full Stack Web App Developer, Expert Next.js Developer, Web
+              Designer, WordPress Developer
+            </h2>
+            <p className="mt-5 text-base leading-8 text-white/62">
+              I build modern, business-focused websites that combine strong
+              visual presentation with clean code, responsive layouts, and a
+              reliable client experience.
+            </p>
+            <div className="mt-8 grid gap-3 text-sm text-white/70">
+              <div className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3">
+                Location: Bangladesh
+              </div>
+              <div className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3">
+                Email: akmhumayounalom@gmail.com
+              </div>
+              <div className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3">
+                Phone: 01748303987
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <a
-              href="/resume.pdf"
-              className="purple-button mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white"
+      <section className="page-shell section-space pt-10">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {bentoCards.map((card) => (
+            <BentoCard
+              key={card.title}
+              title={card.title}
+              description={card.description}
+              className={card.className}
+              accent={card.accent}
             >
-              Download CV
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section className="page-shell section-space">
-        <SectionTitle
-          eyebrow="My Services"
-          title="Development and design services tailored for premium modern websites."
-          description="Each service combines strong presentation, responsive implementation, and a business-first approach."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-            />
+              {card.content}
+            </BentoCard>
           ))}
+
+          <BentoCard
+            title="Do you want to start a project together? Copy my email"
+            className="md:col-span-2 lg:col-span-3"
+            accent="bg-violet-500/18"
+          >
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-7 text-white/60">
+                akmhumayounalom@gmail.com
+              </p>
+              <CopyEmailButton email="akmhumayounalom@gmail.com" />
+            </div>
+          </BentoCard>
         </div>
       </section>
 
-      <section className="page-shell section-space">
-        <SectionTitle
-          eyebrow="Recent Works"
-          title="Selected projects that reflect the visual direction and quality of work I deliver."
-          description="Modern layouts, careful spacing, responsive structure, and clean technical execution."
-        />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {featuredProjects.map((project) => (
+      <section id="projects" className="page-shell section-space">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="section-heading text-white">
+            A Showcase of My Recent Projects
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {projects.map((project) => (
             <ProjectCard
               key={project.title}
               title={project.title}
               description={project.description}
               techStack={project.techStack}
-              featured={project.featured}
             />
           ))}
         </div>
       </section>
 
-      <section className="page-shell section-space">
-        <SectionTitle
-          eyebrow="Technologies"
-          title="Technologies I Work With"
-          description="A full stack toolkit covering frontend, backend, CMS, design systems, and optimization."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {skills.map((skill) => (
+      <section id="testimonials" className="page-shell section-space">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="section-heading text-white">
+            Kind words from satisfied clients
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.person} {...testimonial} />
+          ))}
+        </div>
+      </section>
+
+      <section className="page-shell section-space pt-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {tools.map((tool) => (
             <div
-              key={skill}
-              className="glass-panel rounded-full px-5 py-4 text-sm font-semibold text-white/84 hover:border-[#9f67ff]/26 hover:bg-[#9f67ff]/8"
+              key={tool}
+              className="panel flex min-h-24 items-center justify-center rounded-[1.6rem] px-5 py-6 text-center text-sm font-medium uppercase tracking-[0.18em] text-white/72"
             >
-              {skill}
+              {tool}
             </div>
           ))}
         </div>
       </section>
 
       <section className="page-shell section-space">
-        <SectionTitle
-          eyebrow="Testimonials"
-          title="What Clients Say"
-          description="A premium portfolio is about more than visuals. It should also feel dependable, thoughtful, and easy to work with."
-          align="center"
-          className="max-w-4xl"
-        />
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="dark-card rounded-[2rem] p-7">
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#9f67ff]/24 bg-[#9f67ff]/12 text-sm font-black text-white">
-                  {testimonial.name.slice(0, 1)}
-                </div>
-                <div>
-                  <p className="font-bold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-white/55">{testimonial.role}</p>
-                </div>
-              </div>
-              <p className="text-[#d8b4fe]">*****</p>
-              <p className="mt-4 text-base leading-8 text-white/70">
-                &quot;{testimonial.quote}&quot;
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="section-heading text-white">My work experience</h2>
+        </div>
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {experiences.map((experience) => (
+            <ExperienceCard key={experience.title} {...experience} />
+          ))}
+        </div>
+      </section>
+
+      <section className="page-shell section-space">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="section-heading text-white">My Approach</h2>
+        </div>
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {approaches.map((approach) => (
+            <article key={approach.phase} className="panel rounded-[1.9rem] p-6 sm:p-7">
+              <p className="eyebrow">{approach.phase}</p>
+              <h3 className="mt-5 text-2xl font-semibold text-white">
+                {approach.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-white/62 sm:text-base">
+                {approach.description}
               </p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="page-shell section-space pt-4">
-        <div className="purple-button rounded-[2.3rem] p-[1px]">
-          <div className="rounded-[2.3rem] bg-[#0f0b18] px-8 py-12 text-center sm:px-12 lg:px-16 lg:py-16">
-            <p className="eyebrow">Have a project in mind?</p>
-            <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Let&apos;s build something amazing together!
-            </h2>
+      <section id="contact" className="page-shell section-space pt-4">
+        <div className="panel-strong rounded-[2.4rem] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
+          <h2 className="section-heading mx-auto max-w-4xl text-white">
+            Ready to take your digital presence to the next level?
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/62">
+            Reach out to me today and let&apos;s discuss how I can help you
+            achieve your goals.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="purple-button mt-8 inline-flex items-center justify-center rounded-full px-7 py-4 text-sm font-semibold text-white"
+              className="purple-button inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white"
             >
-              Get In Touch
+              Let&apos;s Get In Touch
             </Link>
+            <a
+              href="mailto:akmhumayounalom@gmail.com"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3.5 text-sm font-medium text-white/72 hover:text-white"
+            >
+              akmhumayounalom@gmail.com
+            </a>
           </div>
         </div>
       </section>

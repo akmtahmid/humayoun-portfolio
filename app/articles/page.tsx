@@ -1,58 +1,41 @@
-import ArticleCard from "@/components/ArticleCard";
-import SectionTitle from "@/components/SectionTitle";
-
 const articles = [
   {
-    title: "Build A Custom Pagination Component In Reactjs From Scratch",
+    title: "Designing Better Business Websites with Next.js",
     description:
-      "A practical walkthrough for creating reusable pagination logic and improving navigation in React applications.",
+      "A practical look at structure, clarity, and performance when building service-focused websites.",
   },
   {
-    title: "How To Build A Modern Portfolio With Next.js",
+    title: "Why Clean Layout Hierarchy Improves Conversions",
     description:
-      "A guide to structuring a premium portfolio using App Router, reusable UI, and dark modern layouts.",
+      "Thoughtful spacing, contrast, and content flow can make even a simple landing page feel far more effective.",
   },
   {
-    title: "WordPress Website Design Tips For Beginners",
+    title: "WordPress and Elementor for Modern Client Projects",
     description:
-      "Helpful design choices that make WordPress websites look more professional, modern, and trustworthy.",
-  },
-  {
-    title: "SEO Optimization For Business Websites",
-    description:
-      "Simple but effective ways to improve structure, loading speed, and search visibility for service websites.",
-  },
-  {
-    title: "Tailwind CSS Layout Tips",
-    description:
-      "Useful spacing, grid, and composition ideas for creating cleaner interfaces across desktop and mobile.",
-  },
-  {
-    title: "Full Stack Development Roadmap",
-    description:
-      "A focused roadmap for learning frontend, backend, APIs, databases, and the mindset needed for complete web development.",
+      "How flexible content editing and polished presentation can work together for small business websites.",
   },
 ];
 
 export default function ArticlesPage() {
   return (
     <main className="page-shell section-space">
-      <SectionTitle
-        eyebrow="Articles"
-        title="Words Can Change The World!"
-        description="Ideas, tutorials, and practical notes about web design, Next.js, WordPress, and full stack development."
-        align="center"
-        className="max-w-4xl"
-      />
+      <section className="mx-auto max-w-4xl text-center">
+        <p className="eyebrow">Articles</p>
+        <h1 className="section-heading mt-5 text-white">Notes, ideas, and process</h1>
+        <p className="mt-5 text-base leading-8 text-white/62 sm:text-lg">
+          This route stays simple, but it follows the same dark presentation and
+          content rhythm as the rest of the portfolio.
+        </p>
+      </section>
 
-      <section className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {articles.map((article, index) => (
-          <ArticleCard
-            key={article.title}
-            index={index + 1}
-            title={article.title}
-            description={article.description}
-          />
+      <section className="mt-16 grid gap-6 lg:grid-cols-3">
+        {articles.map((article) => (
+          <article key={article.title} className="panel rounded-[1.9rem] p-6 sm:p-7">
+            <p className="text-xl font-semibold text-white">{article.title}</p>
+            <p className="mt-4 text-sm leading-7 text-white/62">
+              {article.description}
+            </p>
+          </article>
         ))}
       </section>
     </main>

@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full bg-[#09090f] text-white">
+      <body className="min-h-full bg-background text-foreground">
         <div className="relative flex min-h-full flex-col">
           <Navbar />
           <div className="flex-1">{children}</div>
