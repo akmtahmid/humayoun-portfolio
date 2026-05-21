@@ -1,51 +1,74 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import PageHeader from "@/components/PageHeader";
 import ProjectCard from "@/components/ProjectCard";
+
+const featuredProject = {
+  title: "Full Stack Client Experience Platform",
+  description:
+    "A featured dashboard-style concept combining polished interface design, structured data views, scalable sections, and a premium dark visual language for a modern web product.",
+  techStack: ["Next.js", "Tailwind CSS", "MongoDB", "Dashboard UI"],
+  featured: true,
+};
 
 const projects = [
   {
     title: "Digital Agency Website",
     description:
-      "Modern agency website built with Next.js and Tailwind CSS for business growth and lead generation.",
+      "A strong service website for agencies that need credibility, elegant sections, and a lead-friendly flow.",
     techStack: ["Next.js", "Tailwind CSS", "Lead Gen"],
   },
   {
-    title: "WordPress Service Website",
+    title: "Portfolio Website",
     description:
-      "Responsive WordPress website using Elementor, custom sections, and SEO-friendly structure.",
-    techStack: ["WordPress", "Elementor", "SEO"],
+      "A personal brand website designed to showcase identity, work, and credibility in a clean modern layout.",
+    techStack: ["Portfolio", "UI Design", "Responsive"],
   },
   {
     title: "Business Landing Page",
     description:
-      "High converting landing page for online services, portfolio, and business promotion.",
-    techStack: ["Landing Page", "Responsive", "UI Design"],
+      "A focused landing page layout designed to support clear messaging and stronger conversion paths.",
+    techStack: ["Landing Page", "Responsive", "Marketing"],
+  },
+  {
+    title: "WordPress Service Website",
+    description:
+      "A service website with WordPress-friendly structure for clients who want easy editing and modern presentation.",
+    techStack: ["WordPress", "Elementor", "Service Site"],
+  },
+  {
+    title: "SEO Optimized Website",
+    description:
+      "A website structure built with page clarity, speed, and discoverability in mind for business growth.",
+    techStack: ["SEO", "Performance", "Content Flow"],
   },
   {
     title: "Full Stack Dashboard",
     description:
-      "Dashboard concept using Next.js, Node.js, MongoDB, and REST API.",
-    techStack: ["Next.js", "MongoDB", "REST API"],
+      "A dashboard concept for data management, internal workflows, and polished multi-panel user experience.",
+    techStack: ["Next.js", "Node.js", "MongoDB"],
   },
 ];
 
 export default function ProjectsPage() {
   return (
     <main className="page-shell section-space">
-      <section className="mx-auto max-w-4xl text-center">
-        <p className="eyebrow">Projects</p>
-        <h1 className="section-heading mt-5 text-white">
-          A Showcase of My Recent Projects
-        </h1>
-        <p className="mt-5 text-base leading-8 text-white/62 sm:text-lg">
-          Selected website concepts and product-style builds presented in the
-          same visual language as the homepage.
-        </p>
-      </section>
+      <AnimatedSection>
+        <PageHeader
+          eyebrow="Projects"
+          title="Imagination Trumps Mastery!"
+          description="A focused projects page with one featured concept and the full collection of project cards."
+        />
+      </AnimatedSection>
 
-      <section className="mt-16 grid gap-6 lg:grid-cols-2">
+      <AnimatedSection className="mt-16" delayClassName="animation-delay-150">
+        <ProjectCard {...featuredProject} />
+      </AnimatedSection>
+
+      <AnimatedSection className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3" delayClassName="animation-delay-300">
         {projects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}
-      </section>
+      </AnimatedSection>
     </main>
   );
 }

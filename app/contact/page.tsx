@@ -1,3 +1,6 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import PageHeader from "@/components/PageHeader";
+
 const contactCards = [
   {
     title: "Email",
@@ -21,66 +24,120 @@ const contactCards = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What kind of projects do you work on?",
+    answer:
+      "I work on portfolio websites, business websites, landing pages, WordPress service sites, and custom Next.js web apps.",
+  },
+  {
+    question: "What is the easiest way to contact you?",
+    answer:
+      "Email is the fastest option, but phone and Facebook details are also available here for direct communication.",
+  },
+  {
+    question: "Do you work remotely?",
+    answer:
+      "Yes. I work remotely from Bangladesh and collaborate comfortably across different time zones.",
+  },
+];
+
 export default function ContactPage() {
   return (
     <main className="page-shell section-space">
-      <section className="mx-auto max-w-4xl text-center">
-        <p className="eyebrow">Contact</p>
-        <h1 className="section-heading mt-5 text-white">Let&apos;s Get In Touch</h1>
-        <p className="mt-5 text-base leading-8 text-white/62 sm:text-lg">
-          Reach out if you want a polished business website, a modern portfolio,
-          or a custom Next.js project with a clear and collaborative process.
-        </p>
-      </section>
+      <AnimatedSection>
+        <PageHeader
+          eyebrow="Contact"
+          title="Let’s Build Something Great Together"
+          description="A dedicated contact page for quick reach-out options, message form UI, and a few common questions."
+        />
+      </AnimatedSection>
 
-      <section className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <AnimatedSection className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4" delayClassName="animation-delay-150">
         {contactCards.map((card) => (
-          <a key={card.title} href={card.href} className="panel rounded-[1.8rem] p-6">
-            <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-              {card.title}
-            </p>
+          <a
+            key={card.title}
+            href={card.href}
+            className="panel hover-card rounded-[1.8rem] p-6"
+          >
+            <p className="text-xs uppercase tracking-[0.24em] text-white/45">{card.title}</p>
             <p className="mt-4 text-xl font-semibold text-white">{card.value}</p>
           </a>
         ))}
-      </section>
+      </AnimatedSection>
 
-      <section className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <AnimatedSection className="mt-16 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]" delayClassName="animation-delay-300">
         <article className="panel rounded-[2rem] p-8 sm:p-10">
-          <p className="text-2xl font-semibold text-white">Available for work</p>
-          <p className="mt-5 text-base leading-8 text-white/62">
-            I work on single-page portfolios, service websites, landing pages,
-            WordPress builds, and custom Next.js interfaces. If you have a
-            project in mind, email is the fastest way to start.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="mailto:akmhumayounalom@gmail.com"
-              className="purple-button inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white"
-            >
-              Send Email
-            </a>
-            <a
-              href="tel:01748303987"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3.5 text-sm font-medium text-white/72 hover:text-white"
-            >
-              Call Now
-            </a>
+          <p className="eyebrow">Contact Form</p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <label className="block">
+              <span className="mb-2 block text-sm text-white/70">Name</span>
+              <input
+                type="text"
+                placeholder="Your name"
+                className="w-full rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-violet-400/40"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-2 block text-sm text-white/70">Email</span>
+              <input
+                type="email"
+                placeholder="Your email"
+                className="w-full rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-violet-400/40"
+              />
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="mb-2 block text-sm text-white/70">Subject</span>
+              <input
+                type="text"
+                placeholder="Project subject"
+                className="w-full rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-violet-400/40"
+              />
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="mb-2 block text-sm text-white/70">Message</span>
+              <textarea
+                rows={6}
+                placeholder="Tell me about your project"
+                className="w-full rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-violet-400/40"
+              />
+            </label>
           </div>
+          <button
+            type="button"
+            className="purple-button mt-6 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white"
+          >
+            Send Message
+          </button>
         </article>
 
-        <article className="panel rounded-[2rem] p-8 sm:p-10">
-          <p className="text-sm uppercase tracking-[0.24em] text-white/45">
-            Quick Info
-          </p>
-          <div className="mt-6 space-y-4 text-sm leading-7 text-white/65">
-            <p>Name: Akm Humayoun Alom</p>
-            <p>Profession: Full Stack Web App Developer</p>
-            <p>LinkedIn: Not added yet</p>
-            <p>GitHub: Not added yet</p>
-            <p>Facebook: Akm tahmidul Alom Tahmid</p>
-          </div>
-        </article>
-      </section>
+        <div className="grid gap-6">
+          <article className="panel rounded-[2rem] p-8">
+            <p className="eyebrow">Contact Info</p>
+            <div className="mt-5 space-y-4 text-sm leading-7 text-white/65">
+              <p>Name: Akm Humayoun Alom</p>
+              <p>Profession: Full Stack Web App Developer, Expert Next.js Developer, Web Designer, WordPress Developer</p>
+              <p>Email: akmhumayounalom@gmail.com</p>
+              <p>Phone: 01748303987</p>
+              <p>Facebook: Akm tahmidul Alom Tahmid</p>
+              <p>LinkedIn: Not added yet</p>
+              <p>GitHub: Not added yet</p>
+            </div>
+          </article>
+
+          <article className="panel rounded-[2rem] p-8">
+            <p className="eyebrow">FAQ</p>
+            <div className="mt-6 space-y-5">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-5">
+                  <p className="text-lg font-semibold text-white">{faq.question}</p>
+                  <p className="mt-3 text-sm leading-7 text-white/62">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </AnimatedSection>
     </main>
   );
 }

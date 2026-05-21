@@ -21,14 +21,15 @@ export default function ProfileImage({
   if (hasError) {
     return (
       <div
-        className={`relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(135deg,rgba(31,41,55,0.96),rgba(76,29,149,0.9),rgba(15,23,42,0.96))] ${className}`}
+        className={`relative overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(76,29,149,0.88),rgba(15,23,42,0.96))] ${className}`}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(192,132,252,0.24),_transparent_30%),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:auto,28px_28px,28px_28px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[length:28px_28px] opacity-60" />
+        <div className="absolute left-6 top-6 h-20 w-20 rounded-full bg-violet-400/20 blur-3xl animate-glow-pulse" />
         <div className="relative flex h-full min-h-[20rem] items-end p-6">
-          <div className="rounded-[1.4rem] border border-white/10 bg-black/25 px-5 py-4 backdrop-blur">
+          <div className="glass-panel max-w-xs rounded-[1.4rem] px-5 py-4">
             <p className="text-lg font-semibold text-white">Profile Preview</p>
             <p className="mt-2 text-sm leading-6 text-white/65">
-              Add `public/profile.jpg` to show your photo here.
+              `public/profile.jpg` was not found, so a styled placeholder is shown instead.
             </p>
           </div>
         </div>
@@ -38,18 +39,18 @@ export default function ProfileImage({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0b1220] ${className}`}
+      className={`relative overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#0b1220] ${className}`}
     >
       <Image
         src={src}
         alt={alt}
         fill
         priority={priority}
-        sizes="(min-width: 1280px) 28rem, (min-width: 768px) 24rem, 100vw"
-        className="object-cover"
+        sizes="(min-width: 1280px) 30rem, (min-width: 768px) 26rem, 100vw"
+        className="object-cover transition-transform duration-700 hover:scale-[1.03]"
         onError={() => setHasError(true)}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(2,6,23,0.5),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(2,6,23,0.64),rgba(2,6,23,0.08)_45%,transparent)]" />
     </div>
   );
 }

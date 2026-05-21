@@ -1,43 +1,56 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import ArticleCard from "@/components/ArticleCard";
+import PageHeader from "@/components/PageHeader";
+
 const articles = [
   {
-    title: "Designing Better Business Websites with Next.js",
+    title: "Build A Custom Pagination Component In Reactjs From Scratch",
     description:
-      "A practical look at structure, clarity, and performance when building service-focused websites.",
+      "A practical guide to creating flexible pagination UI that stays clean, reusable, and easy to scale.",
   },
   {
-    title: "Why Clean Layout Hierarchy Improves Conversions",
+    title: "How To Build A Modern Portfolio With Next.js",
     description:
-      "Thoughtful spacing, contrast, and content flow can make even a simple landing page feel far more effective.",
+      "A walkthrough of structure, sections, and dark modern styling choices for a premium portfolio website.",
   },
   {
-    title: "WordPress and Elementor for Modern Client Projects",
+    title: "WordPress Website Design Tips For Beginners",
     description:
-      "How flexible content editing and polished presentation can work together for small business websites.",
+      "Foundational layout and visual advice for creating better first impressions with WordPress projects.",
+  },
+  {
+    title: "SEO Optimization For Business Websites",
+    description:
+      "An overview of content structure, speed, headings, and clarity decisions that support discoverability.",
+  },
+  {
+    title: "Tailwind CSS Layout Tips",
+    description:
+      "Useful layout techniques for spacing, alignment, responsive rhythm, and reusable UI sections.",
+  },
+  {
+    title: "Full Stack Development Roadmap",
+    description:
+      "A practical roadmap for growing from frontend basics into full stack projects with confidence.",
   },
 ];
 
 export default function ArticlesPage() {
   return (
     <main className="page-shell section-space">
-      <section className="mx-auto max-w-4xl text-center">
-        <p className="eyebrow">Articles</p>
-        <h1 className="section-heading mt-5 text-white">Notes, ideas, and process</h1>
-        <p className="mt-5 text-base leading-8 text-white/62 sm:text-lg">
-          This route stays simple, but it follows the same dark presentation and
-          content rhythm as the rest of the portfolio.
-        </p>
-      </section>
+      <AnimatedSection>
+        <PageHeader
+          eyebrow="Articles"
+          title="Words Can Change The World!"
+          description="A full articles page for writing, insights, and educational content in the same visual system."
+        />
+      </AnimatedSection>
 
-      <section className="mt-16 grid gap-6 lg:grid-cols-3">
-        {articles.map((article) => (
-          <article key={article.title} className="panel rounded-[1.9rem] p-6 sm:p-7">
-            <p className="text-xl font-semibold text-white">{article.title}</p>
-            <p className="mt-4 text-sm leading-7 text-white/62">
-              {article.description}
-            </p>
-          </article>
+      <AnimatedSection className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3" delayClassName="animation-delay-150">
+        {articles.map((article, index) => (
+          <ArticleCard key={article.title} index={index + 1} {...article} />
         ))}
-      </section>
+      </AnimatedSection>
     </main>
   );
 }
