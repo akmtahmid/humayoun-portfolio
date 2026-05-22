@@ -69,7 +69,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-up opacity-0 [animation-fill-mode:forwards] animation-delay-450">
               <a
-                href="mailto:akmhumayounalom@gmail.com?subject=Resume%20Request"
+                href="mailto:akmhumayoun@gmail.com?subject=Resume%20Request"
                 className="purple-button inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white"
               >
                 Get Resume

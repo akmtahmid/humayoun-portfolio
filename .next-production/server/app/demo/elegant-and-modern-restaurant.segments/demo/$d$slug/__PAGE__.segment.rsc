@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[7914,["500","static/chunks/500-c99b8dfd3de17c86.js","772","static/chunks/772-87663e7f8f2b1dc6.js","200","static/chunks/app/demo/%5Bslug%5D/page-3f122405d812505c.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"project":{"id":6,"slug":"elegant-and-modern-restaurant","title":"Elegant and Modern Restaurant","bannerTitle":"Elegant and Modern Restaurant","bannerSubtitle":"Concept to launch, simplified","category":"Web Development","complexity":"Moderate","timeline":"3-4 weeks","priceRange":"$$500 - $1,200","imageSrc":"/project-image/Elegant and Modern Restaurant.webp","technologies":["NextJS","ReactJS","Bootstrap"],"features":["Menu and product sections","Responsive design","Integration-ready","Clean and professional UI","Smooth carousels/sliders"],"overview":"A modern food and restaurant demo platform designed to highlight menus, offers, and services for restaurants, cafes, and food delivery businesses."}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZnNBqGG-NJ1MVpNjZ6LBY"}
+5:null

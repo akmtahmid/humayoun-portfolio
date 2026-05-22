@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -22,6 +25,12 @@ const contactItems = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/demo")) {
+    return null;
+  }
+
   return (
     <footer className="page-shell pb-8 pt-6">
       <div className="panel rounded-[2rem] px-6 py-8 sm:px-8 lg:px-10">
@@ -66,7 +75,9 @@ export default function Footer() {
             </p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-white/62">
               {contactItems.map((item) => (
-                <p key={item}>{item}</p>
+                <p key={item} className="break-all">
+                  {item}
+                </p>
               ))}
             </div>
           </div>

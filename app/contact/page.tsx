@@ -4,8 +4,8 @@ import PageHeader from "@/components/PageHeader";
 const contactCards = [
   {
     title: "Email",
-    value: "akmhumayounalom@gmail.com",
-    href: "mailto:akmhumayounalom@gmail.com",
+    value: "akmhumayoun@gmail.com",
+    href: "mailto:akmhumayoun@gmail.com",
   },
   {
     title: "Phone",
@@ -14,7 +14,7 @@ const contactCards = [
   },
   {
     title: "Facebook",
-    value: "Akm tahmidul Alom Tahmid",
+    value: "Akm humayoun",
     href: "/contact",
   },
   {
@@ -60,8 +60,14 @@ export default function ContactPage() {
             href={card.href}
             className="panel hover-card rounded-[1.8rem] p-6"
           >
-            <p className="text-xs uppercase tracking-[0.24em] text-white/45">{card.title}</p>
-            <p className="mt-4 text-xl font-semibold text-white">{card.value}</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">{card.title}</p>
+            <p
+              className={`mt-3 text-lg font-semibold text-white sm:text-[1.15rem] ${
+                card.title === "Email" ? "break-all" : "break-words"
+              }`}
+            >
+              {card.value}
+            </p>
           </a>
         ))}
       </AnimatedSection>
@@ -115,13 +121,15 @@ export default function ContactPage() {
           <article className="panel rounded-[2rem] p-8">
             <p className="eyebrow">Contact Info</p>
             <div className="mt-5 space-y-4 text-sm leading-7 text-white/65">
-              <p>Name: Akm Humayoun Alom</p>
-              <p>Profession: Full Stack Web App Developer, Expert Next.js Developer, Web Designer, WordPress Developer</p>
-              <p>Email: akmhumayounalom@gmail.com</p>
-              <p>Phone: 01748303987</p>
-              <p>Facebook: Akm tahmidul Alom Tahmid</p>
-              <p>LinkedIn: Not added yet</p>
-              <p>GitHub: Not added yet</p>
+              <p className="break-words">Name: Akm Humayoun Alom</p>
+              <p className="break-words">
+                Profession: Full Stack Web App Developer, Expert Next.js Developer, Web Designer, WordPress Developer
+              </p>
+              <p className="break-all">Email: akmhumayoun@gmail.com</p>
+              <p className="break-words">Phone: 01748303987</p>
+              <p className="break-words">Facebook: Akm humayoun</p>
+              <p className="break-words">LinkedIn: Not added yet</p>
+              <p className="break-words">GitHub: Not added yet</p>
             </div>
           </article>
 

@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/demo", label: "Demo" },
   { href: "/articles", label: "Articles" },
   { href: "/contact", label: "Contact" },
 ];
@@ -27,9 +28,92 @@ const socialLinks = [
   },
 ];
 
+const demoNavLinks = [
+  { href: "/demo#filters", label: "Web Development" },
+  { href: "/demo#filters", label: "App Development" },
+  { href: "/demo#filters", label: "UI/UX Design" },
+  { href: "/demo#filters", label: "Branding" },
+  { href: "/demo#filters", label: "SEO" },
+  { href: "/demo#filters", label: "Social Media" },
+  { href: "/demo#filters", label: "Inventory" },
+];
+
+function DemoNavbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <Link href="/demo" className="text-xl font-black tracking-tight text-slate-900">
+          DemoProjects
+        </Link>
+
+        <nav className="hidden items-center gap-6 xl:flex">
+          {demoNavLinks.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-sm font-medium text-slate-600 hover:text-slate-900"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 xl:flex">
+          <Link
+            href="/contact"
+            className="rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_12px_25px_rgba(124,58,237,0.22)] hover:bg-violet-700"
+          >
+            Contact About Demo
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          aria-label="Toggle demo navigation"
+          onClick={() => setIsOpen((current) => !current)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 xl:hidden"
+        >
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      {isOpen ? (
+        <div className="border-t border-slate-200 bg-white px-4 py-4 shadow-sm sm:px-6 xl:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3">
+            {demoNavLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 inline-flex items-center justify-center rounded-lg bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700"
+            >
+              Contact About Demo
+            </Link>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
+  if (pathname.startsWith("/demo")) {
+    return <DemoNavbar />;
+  }
 
   return (
     <header className="sticky top-0 z-50 animate-slide-down">

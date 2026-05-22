@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[7914,["500","static/chunks/500-c99b8dfd3de17c86.js","772","static/chunks/772-87663e7f8f2b1dc6.js","200","static/chunks/app/demo/%5Bslug%5D/page-3f122405d812505c.js"],"default"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"project":{"id":2,"slug":"easy-booking","title":"Easy Booking","bannerTitle":"Easy Booking","bannerSubtitle":"Seamless travel booking","category":"Web Development","complexity":"Complex","timeline":"8-9 weeks","priceRange":"$$1,200 - $4,000","imageSrc":"/project-image/Easy Bookingy.webp","technologies":["Vite","ReactJS","Tailwind"],"features":["Service catalog","Booking management","Category-based navigation","Responsive design","Modern UI/UX","Engaging user experience"],"overview":"Easy Booking is a modern web-based booking and scheduling platform. The application provides users with an intuitive interface to browse, book, and manage appointments or services. The platform emphasizes a clean, responsive design and smooth navigation."}}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZnNBqGG-NJ1MVpNjZ6LBY"}
+5:null

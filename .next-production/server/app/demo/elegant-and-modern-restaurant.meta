@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/demo/layout,_N_T_/demo/[slug]/layout,_N_T_/demo/[slug]/page,_N_T_/demo/elegant-and-modern-restaurant"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/demo/$d$slug/__PAGE__",
+    "/demo/$d$slug",
+    "/demo",
+    "/_index",
+    "/_head"
+  ]
+}
